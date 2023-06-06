@@ -19,13 +19,6 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/auth.js"));
 app.use("/api/notes", require("./routes/notes.js"));
 
-//Static file
-app.use(express.static(path.join(__dirname, "../Frontend/build")));
-
-app.get("*", function (req, res) {
-  res.sendFile(__dirname, "../Frontend/build/index.html");
-});
-
 app.listen(port, () => {
   console.log(`iNotebook App listening on port ${port}`);
 });
